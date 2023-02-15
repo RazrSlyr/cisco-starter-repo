@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import AddressDisplay from "../components/addressDisplay";
 import Exhibit from "../components/exhibit";
 import Header from "../components/header";
 
@@ -14,25 +15,16 @@ function App() {
     return out;
   }
 
-
-  // note: the API for getting the ipv4 doesn't seem to be responding right now, so only ipv6 will be obtained
-  useEffect(() => {
-    // get ipv6
-    fetch("https://api64.ipify.org?format=json")
-      .then((response) => response.json())
-      .then((data) => {
-        let temp = cloneObject(comps1);
-        temp.ipv6 = data.ip;
-        setComps1(temp);
-      });
-  }, []);
-
   return (
     <div>
-      <Header />
-      <div className="grid w-full p-5 gap-5 grid-cols-1 place-items-center">
-        <Exhibit heading={"Example Heading"} comps={comps1} />
-        <Exhibit heading={"Example Heading"} comps={comps2} />
+      <Header/>
+      <div className="grid w-full p-5 gap-5 grid-cols-2 place-items-center">
+        <Exhibit heading={"IPV6"}>
+          <AddressDisplay url="https://api64.ipify.org?format=json"/>
+        </Exhibit>
+        <Exhibit heading={"IPV4"}>
+          <AddressDisplay url="https://api.ipify.org?format=json"/>
+        </Exhibit>
       </div>
     </div>
   );
