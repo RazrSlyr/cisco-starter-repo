@@ -4,7 +4,7 @@ function Exhibit(props) {
             <p className="text-2xl text-copper pb-2">{props.heading}</p>
             <ul className="ml-5">
                 {Object.keys(props.comps).map((comp) => {
-                    return <li className="">
+                    return <li key={comp} className="">
                         <span className="text-van-dyke">{comp}: </span>
                         <span className="text-hunyadi">{props.comps[comp]}</span>
                     </li>
