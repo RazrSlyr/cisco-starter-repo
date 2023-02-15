@@ -12,7 +12,6 @@ function AddressDisplay(props) {
                 setIp(data.ip);
             });
         promise.catch((error) => {
-            console.log(error);
             setIp("Failed to Obtain Address");
         });
 

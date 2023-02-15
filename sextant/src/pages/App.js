@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AddressDisplay from "../components/addressDisplay";
 import Exhibit from "../components/exhibit";
 import Header from "../components/header";
+import LatencyDisplay from "../components/latencyDisplay";
 
 function App() {
   let [comps1, setComps1] = useState({});
@@ -25,6 +26,10 @@ function App() {
         <Exhibit heading={"IPV4"}>
           <AddressDisplay url="https://api.ipify.org?format=json"/>
         </Exhibit>
+        <Exhibit heading={"Latency"}>
+          <LatencyDisplay/>
+        </Exhibit>
+        
       </div>
     </div>
   );
